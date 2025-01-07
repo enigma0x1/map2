@@ -1,4 +1,3 @@
-// src/App.svelte
 <script>
     import { onMount } from 'svelte';
     import maplibregl from 'maplibre-gl';
@@ -13,7 +12,8 @@
                     'simple-tiles': {
                         type: 'raster',
                         tiles: ['https://stamen-tiles.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png'],
-                        tileSize: 256
+                        tileSize: 256,
+                        attribution: '&copy; OpenStreetMap Contributors'
                     }
                 },
                 layers: [{
@@ -28,7 +28,6 @@
             zoom: 2
         });
 
-        // Harita yüklendiğinde sepia filtresi ekle
         map.on('load', () => {
             map.getCanvas().style.filter = 'sepia(20%) brightness(105%)';
         });
